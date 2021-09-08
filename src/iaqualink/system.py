@@ -231,7 +231,7 @@ class eXOChlorinator(AqualinkSystem):
     ) -> None:
         data = await response.json()
 
-        LOGGER.info(f"Shadow response: {data}")
+        LOGGER.debug(f"Shadow response: {data}")
 
         # Process the chlorinator attributes
         # Make the data a bit flatter.
@@ -248,7 +248,7 @@ class eXOChlorinator(AqualinkSystem):
         # Process the heating control attributes
         name = "heating"
         attrs = {"name": name}
-        attrs.update(data["state"]["reported"]["heating"])
+        #attrs.update(data["state"]["reported"]["heating"])
         devices.update({name: attrs})
 
         LOGGER.debug(f"devices: {devices}")
