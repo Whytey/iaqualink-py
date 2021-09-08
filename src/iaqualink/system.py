@@ -231,7 +231,7 @@ class eXOChlorinator(AqualinkSystem):
     ) -> None:
         data = await response.json()
 
-        LOGGER.debug(f"Shadow response: {data}")
+        LOGGER.info(f"Shadow response: {data}")
 
         # Process the chlorinator attributes
         # Make the data a bit flatter.
@@ -243,7 +243,7 @@ class eXOChlorinator(AqualinkSystem):
             except:
                 pass
             devices.update({name: attrs})
-        devices.pop("vsp_speed") # temp remove until can handle dictionary
+        #devices.pop("vsp_speed") # temp remove until can handle dictionary
 
         # Process the heating control attributes
         name = "heating"
